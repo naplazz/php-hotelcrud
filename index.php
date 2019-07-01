@@ -12,7 +12,9 @@ $sql = "SELECT * FROM stanze";
 $result = $connessione->query($sql);
 include "header.php";
 ?>
-  <table>
+<div class="container">
+
+  <table class="table">
     <thead>
       <tr>
         <th class="text-center">ID</th>
@@ -37,7 +39,12 @@ include "header.php";
               <td class="text-right"><?php echo $row['created_at'] ?></td>
               <td class="text-right"><?php echo $row['updated_at'] ?></td>
               <td class="text-right">
-                <a href="show.php?id=<?php echo $row['id']?>" type="button" class="btn btn-primary">Primary</a>
+                <div class="btn-group" role="group" aria-label="Basic example">
+                  <a href="show.php?id=<?php echo $row['id']?>" type="button" class="btn btn-secondary">Show</a>
+                  <a href="edit.php?id=<?php echo $row['id']?>" type="button" class="btn btn-secondary">Edit</a>
+                  <a type="button" class="btn btn-secondary">Delete</a>
+                </div>
+
 
               </td>
             </tr>
@@ -56,4 +63,6 @@ include "header.php";
     </tbody>
 
   </table>
+
+  </div>
 <?php include "footer.php"; ?>
